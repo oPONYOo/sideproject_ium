@@ -80,11 +80,11 @@
 			map.setCenter(locPosition);
 		}
 		var data = [
-				//[ position.coords.latitude, position.coords.longitude, '<div style="padding:5px;">여기에 계신가요?!</div>' ],
+
 				[
 						37.566270,
 						126.977908,
-						'<div style="padding: 5px">서울도서관</div><a href="https://map.kakao.com/link/to/서울도서관,37.566270, 126.977908" style="color:blue" target="_blank">길 찾기</a>' ],
+						'<div style="padding: 5px">서울도서관</div><a href="https://map.kakao.com/link/to/서울도서관,37.566270, 126.977908" style="color:blue" target="_blank">길 찾기</a><br><a href="http://localhost:9009/MyProject/roadview.jsp">로드뷰</a>' ],
 				[
 						37.564069,
 						126.973724,
