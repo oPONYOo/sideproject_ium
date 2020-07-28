@@ -58,10 +58,20 @@
 		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
 		function displayMarker(locPosition, message) {
 
+			var imageSrc = 'http://localhost:9009/MyProject/pmarker.png', // 마커이미지의 주소입니다    
+		    imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+		    imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+		      
+		// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+		var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+		    markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
+
+			
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
 				map : map,
-				position : locPosition
+				position : locPosition,
+				 image: markerImage // 마커이미지 설정 
 			});
 
 			var iwContent = message, // 인포윈도우에 표시할 내용
@@ -84,11 +94,11 @@
 				[
 						37.566270,
 						126.977908,
-						'<div style="padding: 5px">서울도서관</div><a href="https://map.kakao.com/link/to/서울도서관,37.566270, 126.977908" style="color:blue" target="_blank">길 찾기</a><br><a href="http://localhost:9009/MyProject/roadview.jsp">로드뷰</a>' ],
+						'<div style="padding: 5px; "border-radius: 10px;">서울도서관</div><a href="https://map.kakao.com/link/to/서울도서관,37.566270, 126.977908" style="color:blue" target="_blank">길 찾기</a><br><a href="http://localhost:9009/MyProject/roadview.jsp">로드뷰</a>' ],
 				[
 						37.564069,
 						126.973724,
-						'<div style="padding: 5px">서울시립미술관</div><a href="https://map.kakao.com/link/to/서울시립미술관,37.564069, 126.973724" style="color:blue" target="_blank">길 찾기</a>' ],
+						'<div style="padding: 5px">서울시립미술관</div><a href="https://map.kakao.com/link/to/서울시립미술관,37.564069, 126.973724" style="color:blue" target="_blank">길 찾기</a><br><a href="#">큐알코드</a>' ],
 				[
 						37.570654,
 						126.970557,
@@ -100,17 +110,27 @@
 				[
 						37.566793,
 						127.009489,
-						'<div style="padding: 5px">동대문디자인플라자DDP</div><a href="https://map.kakao.com/link/to/동대문디자인플라자DDP,37.566793, 127.009489" style="color:blue" target="_blank">길 찾기</a>' ] ];
+						'<div style="padding: 5px">동대문디자인플라자</div><a href="https://map.kakao.com/link/to/동대문디자인플라자DDP,37.566793, 127.009489" style="color:blue" target="_blank">길 찾기</a>' ] ];
 
 		var markers = [];
 		for (var i = 0; i < data.length; i++) {
 
+			var imageSrc = 'http://localhost:9009/MyProject/marker.png', // 마커이미지의 주소입니다    
+			imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+			imageOption = {
+				offset : new kakao.maps.Point(27, 69)
+			}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
 			// 마커가 표시될 위치입니다 
-			var markerPosition = new kakao.maps.LatLng(data[i][0], data[i][1]);
+			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+			var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+					markerPosition = new kakao.maps.LatLng(data[i][0], data[i][1]);
 
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
-				position : markerPosition
+				position : markerPosition,
+				image : markerImage
+			// 마커이미지 설정 
 
 			});
 
